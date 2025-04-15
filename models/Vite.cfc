@@ -19,6 +19,11 @@ component singleton accessors="true" {
 		var manifest = readManifest();
 		return arguments.entrypoints.map( ( entrypoint ) => generateAssetPath( getEntrypointChunk( entrypoint ).file ) );
 	}
+	/**
+	 * Renders the assets for the entrypoints passed
+	 * 
+	 * @param entrypoints The entrypoints to get the assets for
+	 */
 	function render( required any entrypoints ) output="true" {
 		arguments.entrypoints = arrayWrap( arguments.entrypoints );
 
