@@ -4,6 +4,21 @@ component singleton accessors="true" {
 	property name="buildDirectory"   default="/includes/build";
 	property name="manifestFileName" default="manifest.json";
 
+	/** 
+	 * Gets the assets path based on the entrypoints passed
+	 * 
+	 * @param entrypoints The entrypoints to get the assets for
+	 * @return array The asset paths
+	 */
+	function getAssetPaths( required any entrypoints ) {
+		arguments.entrypoints = arrayWrap( arguments.entrypoints );
+		if ( isRunningHot() ) {
+			return arguments.entrypoints.map( ( entrypoint ) => generateHotAssetPath( entrypoint ) );
+		}
+
+		var manifest = readManifest();
+		return arguments.entrypoints.map( ( entrypoint ) => generateAssetPath( getEntrypointChunk( entrypoint ).file ) );
+	}
 	function render( required any entrypoints ) output="true" {
 		arguments.entrypoints = arrayWrap( arguments.entrypoints );
 
