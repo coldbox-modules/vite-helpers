@@ -29,7 +29,7 @@ component singleton accessors="true" {
 
 		if ( isRunningHot() ) {
 			arrayPrepend( arguments.entrypoints, "/@vite/client" );
-			write( arguments.entrypoints.map( ( entrypoint ) => generateTag( generateHotAssetPath( entrypoint ) ) ) );
+			write( getAssetPaths( arguments.entrypoints ).map( ( path ) => generateTag( path ) ) );
 			return;
 		}
 
