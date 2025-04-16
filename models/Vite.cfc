@@ -4,9 +4,9 @@ component singleton accessors="true" {
 	property name="buildDirectory"   default="/includes/build";
 	property name="manifestFileName" default="manifest.json";
 
-	/** 
+	/**
 	 * Gets the assets path based on the entrypoints passed
-	 * 
+	 *
 	 * @param entrypoints The entrypoints to get the assets for
 	 * @return array The asset paths
 	 */
@@ -21,7 +21,7 @@ component singleton accessors="true" {
 	}
 	/**
 	 * Renders the assets for the entrypoints passed
-	 * 
+	 *
 	 * @param entrypoints The entrypoints to get the assets for
 	 */
 	function render( required any entrypoints ) output="true" {
