@@ -142,6 +142,29 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
 						}
 					}
 				} );
+
+				it( "can generate an array of asset paths, using custom buildDirectory and manifestFileName parameters", () => {
+					var customBuildDirectory   = "/includes/somewhere-else";
+					var customManifestFileName = "app-manifest.json";
+					var customManifestFilePath = expandPath( "/app#customBuildDirectory#/#customManifestFileName#" );
+					try {
+						fileWrite( customManifestFilePath, serializeJSON( variables.manifestFileContents ) );
+						 var output = vite()
+								.setBuildDirectory( customBuildDirectory )
+								.setManifestFileName( customManifestFileName )
+								.getAssetPaths( [
+									"resources/assets/css/app.css"
+								] );
+					
+						expect( output ).toBeTypeOf( 'Array' );
+						expect( output ).toHaveLength( 1 );
+						expect( output[ 1 ] ).toInclude( 'includes/somewhere-else/assets/app-00d284d6.css' );	
+					} finally {
+						if ( fileExists( customManifestFilePath ) ) {
+							fileDelete( customManifestFilePath );
+						}
+					}
+				} );
 			} );
 		} );
 	}
