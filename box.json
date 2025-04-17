@@ -1,6 +1,6 @@
 {
     "name":"vite-helpers",
-    "version":"0.0.0",
+    "version":"1.0.1",
     "author":"Eric Peterson <eric@elpete.com>",
     "location":"forgeboxStorage",
     "homepage":"https://github.com/coldbox-modules/vite-helpers",
@@ -20,8 +20,7 @@
     "shortDescription":"Vite Helpers for ColdBox",
     "description":"Helper functions for working with Vite and the coldbox-vite-plugin in your ColdBox apps.",
     "type":"modules",
-    "dependencies":{
-    },
+    "dependencies":{},
     "devDependencies":{
         "testbox":"^5.0.0+1",
         "coldbox":"^6.8.0"
