@@ -7,6 +7,11 @@ component {
 	this.applicationHelper = [ "includes/helpers.cfm" ];
 
 	function configure() {
+		settings = {
+			"hotFilePath"      : "/includes/hot",
+			"buildDirectory"   : "/includes/build",
+			"manifestFileName" : ".vite/manifest.json"
+		}
 	}
 
 }

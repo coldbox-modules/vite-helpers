@@ -1,8 +1,8 @@
 component singleton accessors="true" {
 
-	property name="hotFilePath"      default="/includes/hot";
-	property name="buildDirectory"   default="/includes/build";
-	property name="manifestFileName" default="manifest.json";
+	property name="hotFilePath"      inject="box:setting:hotFilePath@vite-helpers";
+	property name="buildDirectory"   inject="box:setting:buildDirectory@vite-helpers";
+	property name="manifestFileName" inject="box:setting:manifestFileName@vite-helpers";
 
 	/**
 	 * Gets the assets path based on the entrypoints passed

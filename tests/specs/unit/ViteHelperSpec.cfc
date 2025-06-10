@@ -4,7 +4,7 @@ component extends="tests.resources.ModuleIntegrationSpec" appMapping="/app" {
 
 	variables.hotServerUrl         = "http://127.0.0.1:5173";
 	variables.hotFilePath          = expandPath( "/app/includes/hot" );
-	variables.manifestFilePath     = expandPath( "/app/includes/build/manifest.json" );
+	variables.manifestFilePath     = expandPath( "/app/includes/build/.vite/manifest.json" );
 	variables.manifestFileContents = {
 		"resources/assets/css/app.css" : {
 			"file"    : "assets/app-00d284d6.css",
