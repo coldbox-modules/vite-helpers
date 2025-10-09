@@ -10,8 +10,12 @@ component {
     this.mappings[ "/tests" ] = testsPath;
     rootPath = REReplaceNoCase( this.mappings[ "/tests" ], "tests(\\|/)", "" );
     this.mappings[ "/root" ] = rootPath;
-    this.mappings[ "/vite-helpers" ] = rootPath;
-    this.mappings[ "/testingModuleRoot" ] = listDeleteAt( rootPath, listLen( rootPath, '\/' ), "\/" );
+    testingModuleRootMapping = listDeleteAt( rootPath, listLen( rootPath, '\/' ), "\/" );
+    if ( left( testingModuleRootMapping, 1 ) != "/" ) {
+        testingModuleRootMapping = "/" & testingModuleRootMapping;
+    }
+    this.mappings[ "/testingModuleRoot" ] = testingModuleRootMapping;
+    this.mappings[ "/vite-helpers" ] = testingModuleRootMapping;
     this.mappings[ "/app" ] = testsPath & "resources/app";
     this.mappings[ "/" ] = testsPath & "resources/app";
     this.mappings[ "/testbox" ] = rootPath & "/testbox";
