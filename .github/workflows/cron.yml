@@ -11,20 +11,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfengine: ["lucee@5", "lucee@be", "adobe@2018", "adobe@2021", "adobe@2023", "adobe@be"]
-        coldbox: ["coldbox@6", "coldbox@7", "coldbox@be"]
-        javaVersion: ["openjdk8", "openjdk11"]
+        cfengine: [ "lucee@5", "lucee@6", "adobe@2023", "adobe@2025" ]
+        coldbox: ["coldbox@7", "coldbox@be"]
+        javaVersion: [ "openjdk21" ]
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v5
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v1.4.3
+        uses: actions/setup-java@v5
         with:
-          java-version: 11
+          distribution: temurin
+          java-version: 21
 
       - name: Set Up CommandBox
-        uses: elpete/setup-commandbox@v1.0.0
+        uses: Ortus-Solutions/setup-commandbox@v2.0.1
 
       - name: Install dependencies
         run: |
