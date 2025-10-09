@@ -4,5 +4,8 @@
     },
     "jvm":{
         "javaVersion":"openjdk21_jre"
+    },
+    "scripts":{
+        "onServerInitialInstall":"install bx-compat-cfml,bx-esapi --noSave"
     }
 }
