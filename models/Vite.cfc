@@ -293,7 +293,7 @@ component singleton accessors="true" {
 	}
 
 	private string function readHotFile() {
-		param variables._hotServerUrl = fileRead( expandPath( variables.hotFilePath ) );
+		param variables._hotServerUrl = trim( fileRead( expandPath( variables.hotFilePath ) ) );
 		return variables._hotServerUrl;
 	}
 
