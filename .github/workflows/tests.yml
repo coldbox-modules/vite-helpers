@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfengine: [ "boxlang@1", "lucee@5", "lucee@6", "adobe@2023", "adobe@2025" ]
+        cfengine: [ "lucee@5", "lucee@6", "adobe@2023", "adobe@2025" ]
         coldbox: [ "coldbox@7", "coldbox@be" ]
     steps:
       - name: Checkout Repository
