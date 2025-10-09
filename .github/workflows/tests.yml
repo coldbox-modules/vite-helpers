@@ -33,7 +33,7 @@ jobs:
 
       - name: BoxLang Modules
         if: matrix.cfengine == 'boxlang@1'
-        run: box install bx-compat-cfml --noSave
+        run: box server set scripts.onServerInitialInstall="install bx-compat-cfml,bx-esapi --noSave"
 
       - name: Start server
         run: box server start cfengine=${{ matrix.cfengine }} --noSaveSettings
