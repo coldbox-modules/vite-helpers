@@ -15,7 +15,7 @@ component {
         testingModuleRootMapping = "/" & testingModuleRootMapping;
     }
     this.mappings[ "/testingModuleRoot" ] = testingModuleRootMapping;
-    this.mappings[ "/vite-helpers" ] = testingModuleRootMapping;
+    this.mappings[ "/vite-helpers" ] = rootPath;
     this.mappings[ "/app" ] = testsPath & "resources/app";
     this.mappings[ "/" ] = testsPath & "resources/app";
     this.mappings[ "/testbox" ] = rootPath & "/testbox";
