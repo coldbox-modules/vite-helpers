@@ -44,5 +44,5 @@ The module automatically detects mode by checking for the "hot" file and switche
 ## Configuration Points
 Default settings (customizable in `ModuleConfig.cfc`):
 - `hotFilePath`: `/includes/hot` - signals dev mode when present
-- `buildDirectory`: `/includes/build` - where Vite outputs production assets  
+- `buildDirectory`: `/includes/build` - where Vite outputs production assets
 - `manifestFileName`: `.vite/manifest.json` - Vite's asset manifest file
