@@ -8,11 +8,21 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     name: Tests
+    continue-on-error: ${{ matrix.experimental }}
     strategy:
       fail-fast: false
       matrix:
         cfengine: [ "lucee@5", "lucee@6", "adobe@2023", "adobe@2025" ]
         coldbox: [ "coldbox@7", "coldbox@be" ]
+        experimental: [ false ]
+        include:
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@7"
+              experimental: true
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@be"
+              experimental: true
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v5
