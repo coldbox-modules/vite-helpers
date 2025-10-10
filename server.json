@@ -1,5 +1,11 @@
 {
     "app":{
-        "cfengine":"adobe@2018"
+        "cfengine":"boxlang@1"
+    },
+    "jvm":{
+        "javaVersion":"openjdk21_jre"
+    },
+    "scripts":{
+        "onServerInitialInstall":"install bx-compat-cfml,bx-esapi --noSave"
     }
 }

@@ -85,7 +85,7 @@ component {
 	 * Development environment
 	 */
 	function development() {
-		coldbox.customErrorTemplate = "/coldbox/system/exceptions/BugReport.cfm";
+		coldbox.customErrorTemplate = "/coldbox/system/exceptions/Whoops.cfm";
 	}
 
 }
