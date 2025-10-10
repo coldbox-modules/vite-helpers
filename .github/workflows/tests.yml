@@ -17,9 +17,6 @@ jobs:
         experimental: [ false ]
         include:
             - cfengine: "boxlang@1"
-              coldbox: "coldbox@7"
-              experimental: true
-            - cfengine: "boxlang@1"
               coldbox: "coldbox@be"
               experimental: true
 

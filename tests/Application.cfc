@@ -18,6 +18,7 @@ component {
     this.mappings[ "/vite-helpers" ] = rootPath;
     this.mappings[ "/app" ] = testsPath & "resources/app";
     this.mappings[ "/" ] = testsPath & "resources/app";
+    this.mappings[ "/includes" ] = testsPath & "resources/app/includes";
     this.mappings[ "/testbox" ] = rootPath & "/testbox";
     this.mappings[ "/coldbox" ] = testsPath & "/resources/app/coldbox";
 
