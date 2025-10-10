@@ -1,3 +1,11 @@
+# v2.0.1
+## 10 Oct 2025 — 17:14:13 UTC
+
+### chore
+
++ __BoxLang:__ BoxLang compatibility ([ea95ed1](https://github.com/coldbox-modules/vite-helpers/commit/ea95ed1fa4ffde444b0dd5d7e2a7401515365f35))
+
+
 # v2.0.0
 ## 10 Jun 2025 — 17:32:40 UTC
 
