@@ -70,6 +70,10 @@ component singleton accessors="true" {
 				for ( var css in ( manifest[ assetImport ].css ?: [] ) ) {
 					var partialManifest = manifest.filter( ( key, value ) => value.file == css );
 
+					if ( partialManifest.isEmpty() ) {
+						continue;
+					}
+
 					var firstEntryKey = partialManifest.keyArray().first();
 					preloads.append( {
 						"src"      : firstEntryKey,
@@ -100,6 +104,10 @@ component singleton accessors="true" {
 
 			for ( var css in ( chunk.css ?: [] ) ) {
 				var partialManifest = manifest.filter( ( key, value ) => value.file == css );
+
+				if ( partialManifest.isEmpty() ) {
+					continue;
+				}
 
 				var firstEntryKey = partialManifest.keyArray().first();
 
