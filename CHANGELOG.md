@@ -1,3 +1,11 @@
+# v2.0.2
+## 03 Mar 2026 — 02:03:41 UTC
+
+### other
+
++ __\*:__ fix: Prevent processing of empty partial manifests in asset preloading ([8263a93](https://github.com/coldbox-modules/vite-helpers/commit/8263a9337a542c509436d5515f994d0a68836057))
+
+
 # v2.0.1
 ## 10 Oct 2025 — 17:14:13 UTC
 
