@@ -12,16 +12,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfengine: [ "boxlang@1", "lucee@6", "lucee@7", "adobe@2023", "adobe@2025" ]
-        coldbox: [ "coldbox@7", "coldbox@8" ]
+        cfengine: [ "lucee@6", "lucee@7", "adobe@2023", "adobe@2025" ]
+        coldbox: [ "coldbox@8" ]
         experimental: [ false ]
-        exclude:
-            - cfengine: "boxlang@1"
-              coldbox: "coldbox@7"
         include:
+            # BoxLang with CFML compat module (stable)
             - cfengine: "boxlang@1"
-              coldbox: "coldbox@be"
-              experimental: true
+              coldbox: "coldbox@8"
+              experimental: false
+              compat: true
+            # BoxLang without CFML compat module / native BoxLang (stable)
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@8"
+              experimental: false
+              compat: false
+            # CFML engines against coldbox@be (experimental)
             - cfengine: "lucee@6"
               coldbox: "coldbox@be"
               experimental: true
@@ -34,6 +39,16 @@ jobs:
             - cfengine: "adobe@2025"
               coldbox: "coldbox@be"
               experimental: true
+            # BoxLang with compat against coldbox@be (experimental)
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@be"
+              experimental: true
+              compat: true
+            # BoxLang without compat against coldbox@be (experimental)
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@be"
+              experimental: true
+              compat: false
 
     steps:
       - name: Checkout Repository
@@ -53,8 +68,8 @@ jobs:
           box install
           box install ${{ matrix.coldbox }} --noSave
 
-      - name: BoxLang Modules
-        if: matrix.cfengine == 'boxlang@1'
+      - name: BoxLang Modules (with CFML compat)
+        if: matrix.cfengine == 'boxlang@1' && matrix.compat
         run: box server set scripts.onServerInitialInstall="install bx-compat-cfml,bx-esapi --noSave"
 
       - name: Start server
