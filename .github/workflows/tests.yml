@@ -12,12 +12,28 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        cfengine: [ "boxlang@1", "lucee@5", "lucee@6", "adobe@2023", "adobe@2025" ]
-        coldbox: [ "coldbox@7", "coldbox@be" ]
+        cfengine: [ "boxlang@1", "lucee@6", "lucee@7", "adobe@2023", "adobe@2025" ]
+        coldbox: [ "coldbox@7", "coldbox@8" ]
         experimental: [ false ]
         exclude:
             - cfengine: "boxlang@1"
               coldbox: "coldbox@7"
+        include:
+            - cfengine: "boxlang@1"
+              coldbox: "coldbox@be"
+              experimental: true
+            - cfengine: "lucee@6"
+              coldbox: "coldbox@be"
+              experimental: true
+            - cfengine: "lucee@7"
+              coldbox: "coldbox@be"
+              experimental: true
+            - cfengine: "adobe@2023"
+              coldbox: "coldbox@be"
+              experimental: true
+            - cfengine: "adobe@2025"
+              coldbox: "coldbox@be"
+              experimental: true
 
     steps:
       - name: Checkout Repository
