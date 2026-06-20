@@ -16,12 +16,12 @@ jobs:
         coldbox: [ "coldbox@8" ]
         experimental: [ false ]
         include:
-            # BoxLang with CFML compat module (stable)
+            # BoxLang 1 with CFML compat (stable)
             - cfengine: "boxlang@1"
               coldbox: "coldbox@8"
               experimental: false
               compat: true
-            # BoxLang without CFML compat module / native BoxLang (stable)
+            # BoxLang 1 without CFML compat, esapi only (stable)
             - cfengine: "boxlang@1"
               coldbox: "coldbox@8"
               experimental: false
@@ -39,13 +39,33 @@ jobs:
             - cfengine: "adobe@2025"
               coldbox: "coldbox@be"
               experimental: true
-            # BoxLang with compat against coldbox@be (experimental)
+            # BoxLang 1 with compat against coldbox@be (experimental)
             - cfengine: "boxlang@1"
               coldbox: "coldbox@be"
               experimental: true
               compat: true
-            # BoxLang without compat against coldbox@be (experimental)
+            # BoxLang 1 without compat against coldbox@be (experimental)
             - cfengine: "boxlang@1"
+              coldbox: "coldbox@be"
+              experimental: true
+              compat: false
+            # BoxLang BE with compat, coldbox@8 (experimental)
+            - cfengine: "boxlang@be"
+              coldbox: "coldbox@8"
+              experimental: true
+              compat: true
+            # BoxLang BE without compat, coldbox@8 (experimental)
+            - cfengine: "boxlang@be"
+              coldbox: "coldbox@8"
+              experimental: true
+              compat: false
+            # BoxLang BE with compat, coldbox@be (experimental)
+            - cfengine: "boxlang@be"
+              coldbox: "coldbox@be"
+              experimental: true
+              compat: true
+            # BoxLang BE without compat, coldbox@be (experimental)
+            - cfengine: "boxlang@be"
               coldbox: "coldbox@be"
               experimental: true
               compat: false
@@ -69,8 +89,12 @@ jobs:
           box install ${{ matrix.coldbox }} --noSave
 
       - name: BoxLang Modules (with CFML compat)
-        if: matrix.cfengine == 'boxlang@1' && matrix.compat
+        if: contains(matrix.cfengine, 'boxlang') && matrix.compat
         run: box server set scripts.onServerInitialInstall="install bx-compat-cfml,bx-esapi --noSave"
+
+      - name: BoxLang Modules (esapi only)
+        if: contains(matrix.cfengine, 'boxlang') && !matrix.compat
+        run: box server set scripts.onServerInitialInstall="install bx-esapi --noSave"
 
       - name: Start server
         run: box server start cfengine=${{ matrix.cfengine }} --noSaveSettings
