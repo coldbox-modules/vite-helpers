@@ -73,7 +73,12 @@ component singleton accessors="true" {
 					if ( partialManifest.isEmpty() ) {
 						// CSS extracted from a JS chunk has no top-level manifest entry — emit a direct link tag
 						var cssPath = generateAssetPath( css );
-						preloads.append( { "src": css, "path": cssPath, "chunk": {}, "manifest": manifest } );
+						preloads.append( {
+							"src"      : css,
+							"path"     : cssPath,
+							"chunk"    : {},
+							"manifest" : manifest
+						} );
 						tags.append( generateStylesheetTagWithAttributes( cssPath ) );
 						continue;
 					}
@@ -112,7 +117,12 @@ component singleton accessors="true" {
 				if ( partialManifest.isEmpty() ) {
 					// CSS extracted from a JS chunk has no top-level manifest entry — emit a direct link tag
 					var cssPath = generateAssetPath( css );
-					preloads.append( { "src": css, "path": cssPath, "chunk": {}, "manifest": manifest } );
+					preloads.append( {
+						"src"      : css,
+						"path"     : cssPath,
+						"chunk"    : {},
+						"manifest" : manifest
+					} );
 					tags.append( generateStylesheetTagWithAttributes( cssPath ) );
 					continue;
 				}
