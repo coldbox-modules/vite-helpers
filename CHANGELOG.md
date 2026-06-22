@@ -1,3 +1,13 @@
+# v2.0.4
+## 22 Jun 2026 — 21:57:50 UTC
+
+### other
+
++ __\*:__ Merge pull request #6 from coldbox-modules/bug/font-loading-css ([15e7a8e](https://github.com/coldbox-modules/vite-helpers/commit/15e7a8e0ac7a910933eeb5d75369a30ac55705ba))
++ __\*:__ CSS extracted from a JS chunk has no top-level manifest entry — emit a direct link tag
+ ([e0e2b38](https://github.com/coldbox-modules/vite-helpers/commit/e0e2b38c2e369edca31e027f586edcced25a9fed))
+
+
 # v2.0.3
 ## 20 Jun 2026 — 11:57:23 UTC
 
